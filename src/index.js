@@ -15,8 +15,6 @@ async function getImages(event) {
   event.preventDefault();
   try {
     const response = await axios.get(`https://pixabay.com/api/?key=25260590-534fb4fdfe1550b09a9c38aa6&q=${event.currentTarget.searchQuery.value}&image_type=photo&orientation=horizontal&safesearch=true&per_page=40&page=${pagenumber}`);
-    //console.log(response);
-    //console.log(response.data.hits);
     if(response.data.hits.length === 0){
       Notiflix.Notify.failure('Sorry, there are no images matching your search query. Please try again.');
     } else {
@@ -52,8 +50,6 @@ ladMoreBtn.addEventListener('click', async() => {
   pagenumber += 1;
   try {
     const newresponse = await axios.get(`https://pixabay.com/api/?key=25260590-534fb4fdfe1550b09a9c38aa6&q=${inputForm.searchQuery.value}&image_type=photo&orientation=horizontal&safesearch=true&per_page=40&page=${pagenumber}`);
-    //console.log(newresponse);
-    //console.log(newresponse.data.hits);
     if(newresponse.data.hits.length === 0){
       Notiflix.Notify.failure('Sorry, there are no more images matching your search query.');
     } else {
