@@ -17,6 +17,7 @@ async function getImages(event) {
     const response = await axios.get(`https://pixabay.com/api/?key=25260590-534fb4fdfe1550b09a9c38aa6&q=${event.currentTarget.searchQuery.value}&image_type=photo&orientation=horizontal&safesearch=true&per_page=40&page=${pagenumber}`);
     if(response.data.hits.length === 0){
       Notiflix.Notify.failure('Sorry, there are no images matching your search query. Please try again.');
+      ladMoreBtn.style.display = "none";
     } else {
       const galleryImages = response.data.hits.map(({webformatURL, largeImageURL, tags, likes, views, comments, downloads}) => 
     `<a class="gallery__item" href="${largeImageURL}">    
