@@ -41,6 +41,7 @@ async function getImages(event) {
 }
 
 inputForm.addEventListener('submit', async (e) => {
+  pagenumber = 1;
   galleryList.innerHTML = "";
   getImages(e);
   ladMoreBtn.style.display = "block";
