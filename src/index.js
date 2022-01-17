@@ -45,7 +45,6 @@ inputForm.addEventListener('submit', async (e) => {
   ladMoreBtn.style.display = "block";
 });
 
-
 ladMoreBtn.addEventListener('click', async() => {
   pagenumber += 1;
   try {
