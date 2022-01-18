@@ -58,15 +58,16 @@ ladMoreBtn.addEventListener('click', async() => {
       ladMoreBtn.style.display = "none";
     } else {
       const galleryImages = newresponse.data.hits.map(({webformatURL, largeImageURL, tags, likes, views, comments, downloads}) => 
-    `<a class="gallery__item" href="${largeImageURL}">    
-    <img class = "gallery__image" src = "${webformatURL}" alt="${tags}"/>           
+    `<a class="gallery__item gallery__link" href="${largeImageURL}">    
+    <img class = "gallery__image" src = "${webformatURL}" alt="${tags}"/>   
+    <ul>
+      <li class ="disabled-link"><h4>likes</h4><p>${likes}</p></li>
+      <li class ="disabled-link"><h4>views</h4><p>${views}</p></li>
+      <li class ="disabled-link"><h4>comments</h4><p>${comments}</p></li>
+      <li class ="disabled-link"><h4>downloads</h4><p>${downloads}</p></li>
+      </ul>        
       </a>
-      <ul>
-      <li><h4>likes</h4><p>${likes}</p></li>
-      <li><h4>views</h4><p>${views}</p></li>
-      <li><h4>comments</h4><p>${comments}</p></li>
-      <li><h4>downloads</h4><p>${downloads}</p></li>
-      </ul>
+      
       `
       ).join("");
       galleryList.insertAdjacentHTML('beforeend', galleryImages);
